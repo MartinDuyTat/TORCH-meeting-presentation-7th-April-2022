@@ -67,7 +67,7 @@
 \section{Introduction}
 \begin{frame}{Introduction}
   \begin{itemize}
-    \setlength\itemsep{2.0em}
+    \setlength\itemsep{1.0em}
     \item{My work so far:}
     \begin{itemize}
     \setlength\itemsep{0.5em}
@@ -78,16 +78,17 @@
     \item{Long term goal:}
     \begin{itemize}
     \setlength\itemsep{0.5em}
+      \item{Prepare for PID study of next testbeam data}
+      \item{Testing reoconstruction code on real data}
       \item{Build on Jenny's testbeam data analysis:}
       \begin{itemize}
         \item{Jenny has focused on timing resolution studies}
         \item{I will study PID separation power}
       \end{itemize}
-      \item{Prepare for PID study of next testbeam data}
     \end{itemize}
     \item{Thanks to:}
     \begin{itemize}
-      \item{Thomas Blake for providing code}
+      \item{Thomas Blake and Jonas Rademacker for providing LHCb reconstruction code}
       \item{Jenny for providing testbeam data}
     \end{itemize}
   \end{itemize}
@@ -107,7 +108,7 @@
     \includegraphics[width = 0.35\textwidth]{Plots/torch-geometry.pdf}
   \end{figure}
   \begin{itemize}
-    \item{Reconstruction and PID algorithm described in \href{https://www.overleaf.com/project/5d0b9c5a5005405666aacd05}{LHCb-PUB-2022-007}}
+    \item{Reconstruction described in \href{https://www.overleaf.com/project/5d0b9c5a5005405666aacd05}{LHCb-PUB-2022-007}}
   \end{itemize}
 \end{frame}
 
@@ -128,34 +129,41 @@
   \end{itemize}
 \end{frame}
 
-\section{Hit maps}
-\begin{frame}{Hit maps}
+\section{Simulated hit maps}
+\begin{frame}{Simulated hit maps}
   \begin{figure}
     \centering
     \vspace{-0.2cm}
     \begin{subfigure}{0.5\textwidth}
       \includegraphics[width = 1.0\textwidth]{Plots/HitMapMCPFullMiddle.png}
-      \caption{Full MCP array}
+      \caption{Full MCP array, nominal QE}
     \end{subfigure}%
     \begin{subfigure}{0.5\textwidth}
       \includegraphics[width = 1.0\textwidth]{Plots/HitMapMCPABMiddle.png}
-      \caption{MCP A and B}
+      \caption{MCP (reduced QE) A and B}
     \end{subfigure}
     \caption{Track incident $\SI{1}{\meter}$ from top}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Hit maps}
+\begin{frame}{Beam position}
+  \begin{figure}
+    \centering
+    \includegraphics[width = 0.35\textwidth]{Plots/BeamPosition}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Simulated hit maps}
   \begin{figure}
     \centering
     \vspace{-0.2cm}
     \begin{subfigure}{0.5\textwidth}
       \includegraphics[width = 1.0\textwidth]{Plots/HitMapMCPFull.png}
-      \caption{Full MCP array}
+      \caption{Full MCP array, nominal QE}
     \end{subfigure}%
     \begin{subfigure}{0.5\textwidth}
       \includegraphics[width = 1.0\textwidth]{Plots/HitMapMCPAB.png}
-      \caption{MCP A and B}
+      \caption{MCP (reduced QE) A and B}
     \end{subfigure}
     \caption{Track incident on top right corner (position 1)}
   \end{figure}
@@ -185,10 +193,11 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Test likelihood calculation}
+\begin{frame}{Test likelihood calculation on proto-TORCH}
   \begin{itemize}
-    \setlength\itemsep{1.5em}
-    \item{Does it work?}
+    \setlength\itemsep{1.0em}
+    \item{Half height, 2 MCPs (one with reduced QE)}
+    \item{Does PID separation still work?}
     \item{Set up single charged track simulation:}
     \begin{enumerate}
       \setlength\itemsep{0.8em}
@@ -216,7 +225,7 @@
       \includegraphics[width = 1.0\textwidth]{Plots/ProtonPionDLL6GeVStandard.png}
       \caption{Pion-proton $\Delta{\rm LL}$}
     \end{subfigure}
-    \caption{Log likelihood at $\SI{6}{\giga\eV}$}
+    \caption{Log likelihood at $\SI{6}{\giga\eV/c}$}
   \end{figure}
 \end{frame}
 
@@ -232,7 +241,7 @@
       \includegraphics[width = 1.0\textwidth]{Plots/ProtonPionDLL15GeVStandard.png}
       \caption{Pion-proton $\Delta{\rm LL}$}
     \end{subfigure}
-    \caption{Log likelihood at $\SI{15}{\giga\eV}$}
+    \caption{Log likelihood at $\SI{15}{\giga\eV/c}$}
   \end{figure}
 \end{frame}
 
@@ -248,7 +257,7 @@
       \includegraphics[width = 1.0\textwidth]{Plots/ProtonPionDLL20GeVStandard.png}
       \caption{Pion-proton $\Delta{\rm LL}$}
     \end{subfigure}
-    \caption{Log likelihood at $\SI{20}{\giga\eV}$}
+    \caption{Log likelihood at $\SI{20}{\giga\eV/c}$}
   \end{figure}
 \end{frame}
 
@@ -264,7 +273,7 @@
       \includegraphics[width = 1.0\textwidth]{Plots/PionKaonDLL6GeVStandard.png}
       \caption{Pion-kaon $\Delta{\rm LL}$}
     \end{subfigure}
-    \caption{Log likelihood at $\SI{6}{\giga\eV}$}
+    \caption{Log likelihood at $\SI{6}{\giga\eV/c}$}
   \end{figure}
 \end{frame}
 
@@ -280,7 +289,7 @@
       \includegraphics[width = 1.0\textwidth]{Plots/PionKaonDLL15GeVStandard.png}
       \caption{Pion-kaon $\Delta{\rm LL}$}
     \end{subfigure}
-    \caption{Log likelihood at $\SI{15}{\giga\eV}$}
+    \caption{Log likelihood at $\SI{15}{\giga\eV/c}$}
   \end{figure}
 \end{frame}
 
@@ -296,7 +305,7 @@
       \includegraphics[width = 1.0\textwidth]{Plots/PionKaonDLL20GeVStandard.png}
       \caption{Pion-kaon $\Delta{\rm LL}$}
     \end{subfigure}
-    \caption{Log likelihood at $\SI{20}{\giga\eV}$}
+    \caption{Log likelihood at $\SI{20}{\giga\eV/c}$}
   \end{figure}
 \end{frame}
 
@@ -305,14 +314,14 @@
     \centering
     \vspace{-0.2cm}
     \begin{subfigure}{0.5\textwidth}
-      \includegraphics[width = 1.0\textwidth]{Plots/ProtonPionLL20GeVStandardMCPAB.png}
+      \includegraphics[width = 1.0\textwidth]{Plots/ProtonPionLL6GeVStandardMCPAB.png}
       \caption{Pion and proton hypotheses}
     \end{subfigure}%
     \begin{subfigure}{0.5\textwidth}
-      \includegraphics[width = 1.0\textwidth]{Plots/ProtonPionDLL20GeVStandardMCPAB.png}
+      \includegraphics[width = 1.0\textwidth]{Plots/ProtonPionDLL6GeVStandardMCPAB.png}
       \caption{Pion-proton $\Delta{\rm LL}$}
     \end{subfigure}
-    \caption{Log likelihood at $\SI{20}{\giga\eV}$}
+    \caption{Log likelihood at $\SI{6}{\giga\eV/c}$}
   \end{figure}
   \begin{center}
     Adopt to testbeam setup: MCP A and B\\
@@ -325,14 +334,14 @@
     \centering
     \vspace{-0.2cm}
     \begin{subfigure}{0.5\textwidth}
-      \includegraphics[width = 1.0\textwidth]{Plots/PionKaonLL20GeVStandardMCPAB.png}
+      \includegraphics[width = 1.0\textwidth]{Plots/PionKaonLL6GeVStandardMCPAB.png}
       \caption{Pion and kaon hypotheses}
     \end{subfigure}%
     \begin{subfigure}{0.5\textwidth}
-      \includegraphics[width = 1.0\textwidth]{Plots/PionKaonDLL20GeVStandardMCPAB.png}
+      \includegraphics[width = 1.0\textwidth]{Plots/PionKaonDLL6GeVStandardMCPAB.png}
       \caption{Pion-kaon $\Delta{\rm LL}$}
     \end{subfigure}
-    \caption{Log likelihood at $\SI{20}{\giga\eV}$}
+    \caption{Log likelihood at $\SI{6}{\giga\eV/c}$}
   \end{figure}
   \begin{center}
     Adopt to testbeam setup: MCP A and B\\
@@ -361,7 +370,7 @@
     \end{subfigure}%
     \begin{subfigure}{0.5\textwidth}
       \includegraphics[width = 1.0\textwidth]{Plots/PionProtonPIDEfficiencyStandard.png}
-      \caption{Pion-proton}
+      \caption{Kaon-proton}
     \end{subfigure}
     \caption{PID efficiency}
   \end{figure}
@@ -380,7 +389,7 @@
     \end{subfigure}%
     \begin{subfigure}{0.5\textwidth}
       \includegraphics[width = 1.0\textwidth]{Plots/PionProtonPIDEfficiencyStandardMCPAB.png}
-      \caption{Pion-proton}
+      \caption{Kaon-proton}
     \end{subfigure}
     \caption{PID efficiency}
   \end{figure}
@@ -407,21 +416,54 @@
   \end{enumerate}
 \end{frame}
 
-\begin{frame}{Results from testbeam data}
+\begin{frame}{Likelihood in proto-TORCH testbeam data}
+  \begin{figure}
+    \centering
+    \vspace{-0.2cm}
+    \begin{subfigure}{0.5\textwidth}
+      \includegraphics[width = 1.0\textwidth]{Plots/TestBeamDLLPion.png}
+      \caption{Pion sample}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+      \includegraphics[width = 1.0\textwidth]{Plots/TestBeamDLLProton.png}
+      \caption{Proton sample}
+    \end{subfigure}
+    \caption{$\Delta{\rm LL}$ of testbeam data}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Results from testbeam data ``out of the box''}
+  \begin{itemize}
+      \item{Estimate of testbeam momentum: $\SI{8.6}{\giga\eV/c}$}
+  \end{itemize}
   \begin{center}
     \begin{tabular}{lcccccc} 
       \hline
       PID cut                              & $\Delta{\rm LL} > 0$ & $\Delta{\rm LL} > 5$ \\
       \hline
-      $\SI{8}{\giga\eV}$ pion simulation   & $99.0\%$             & $97.9\%$ \\
-      $\SI{9}{\giga\eV}$ pion simulation   & $98.9\%$             & $96.8\%$ \\
-      Proto-TORCH testbeam pions           & $78.6\%$             & $72.9\%$ \\
+      $\SI{8}{\giga\eV/c}$ pion simulation   & $99.0\%$             & $97.9\%$ \\
+      $\SI{9}{\giga\eV/c}$ pion simulation   & $98.9\%$             & $96.8\%$ \\
+      Proto-TORCH testbeam pion sample     & $78.6\%$             & $72.9\%$ \\
       \hline
-      $\SI{8}{\giga\eV}$ proton simulation & $98.7\%$             & $97.4\%$ \\
-      $\SI{9}{\giga\eV}$ proton simulation & $98.8\%$             & $96.5\%$ \\
-      Proto-TORCH testbeam protons         & $66.9\%$             & $59.5\%$ \\
+      $\SI{8}{\giga\eV/c}$ proton simulation & $98.7\%$             & $97.4\%$ \\
+      $\SI{9}{\giga\eV/c}$ proton simulation & $98.8\%$             & $96.5\%$ \\
+      Proto-TORCH testbeam proton sample   & $66.9\%$             & $59.5\%$ \\
       \hline
     \end{tabular}
+    \vspace{0.5cm}
+    \begin{itemize}
+      \item{Clearly this is work in progress:}
+      \begin{enumerate}
+        \item{Time alignment not perfect! Needs to be understood...}
+        \begin{itemize}
+          \item{Individual pixels}
+          \item{Overall $t_0$}
+        \end{itemize}
+        \item{Proton sample has more backgrounds (kaons)?}
+        \item{Likelihood calculation uses a ``perfect'' time resolution ($\sim\SI{70}{\pico\second}$)}
+        \item{MCPs in proto-TORCH have worse QE than in simulation}
+      \end{enumerate}
+    \end{itemize}
   \end{center}
 \end{frame}
 
@@ -434,14 +476,115 @@
       \setlength\itemsep{1.0em}
       \item{Likelihood calculation gives consistent results}
       \item{Single particle simulation shows very good PID separation power}
-      \item{Testbeam data show some PID separation power, but not as good as simulation}
+      \item{Testbeam data show some PID separation, not as good as simulation}
     \end{enumerate}
     \item{Next steps:}
     \begin{enumerate}
       \setlength\itemsep{1.0em}
-      \item{\color{red}Discuss with Neville!}
+      \item{Need much more work to understand test beam data better}
+      \begin{enumerate}
+        \item{Time alignment}
+        \item{Background}
+      \end{enumerate}
     \end{enumerate}
   \end{itemize}
+\end{frame}
+
+\section{Backup}
+\begin{frame}{Pion-Proton likelihood simulations}
+  \begin{figure}
+    \centering
+    \vspace{-0.2cm}
+    \begin{subfigure}{0.5\textwidth}
+      \includegraphics[width = 1.0\textwidth]{Plots/ProtonPionLL6GeVStandardMCPAB.png}
+      \caption{Pion and proton hypotheses}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+      \includegraphics[width = 1.0\textwidth]{Plots/ProtonPionDLL6GeVStandardMCPAB.png}
+      \caption{Pion-proton $\Delta{\rm LL}$}
+    \end{subfigure}
+    \caption{Log likelihood at $\SI{6}{\giga\eV/c}$}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Pion-Proton likelihood simulations}
+  \begin{figure}
+    \centering
+    \vspace{-0.2cm}
+    \begin{subfigure}{0.5\textwidth}
+      \includegraphics[width = 1.0\textwidth]{Plots/ProtonPionLL15GeVStandardMCPAB.png}
+      \caption{Pion and proton hypotheses}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+      \includegraphics[width = 1.0\textwidth]{Plots/ProtonPionDLL15GeVStandardMCPAB.png}
+      \caption{Pion-proton $\Delta{\rm LL}$}
+    \end{subfigure}
+    \caption{Log likelihood at $\SI{15}{\giga\eV/c}$}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Pion-Proton likelihood simulations}
+  \begin{figure}
+    \centering
+    \vspace{-0.2cm}
+    \begin{subfigure}{0.5\textwidth}
+      \includegraphics[width = 1.0\textwidth]{Plots/ProtonPionLL20GeVStandardMCPAB.png}
+      \caption{Pion and proton hypotheses}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+      \includegraphics[width = 1.0\textwidth]{Plots/ProtonPionDLL20GeVStandardMCPAB.png}
+      \caption{Pion-proton $\Delta{\rm LL}$}
+    \end{subfigure}
+    \caption{Log likelihood at $\SI{20}{\giga\eV/c}$}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Pion-Kaon likelihood simulations}
+  \begin{figure}
+    \centering
+    \vspace{-0.2cm}
+    \begin{subfigure}{0.5\textwidth}
+      \includegraphics[width = 1.0\textwidth]{Plots/PionKaonLL6GeVStandardMCPAB.png}
+      \caption{Pion and kaon hypotheses}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+      \includegraphics[width = 1.0\textwidth]{Plots/PionKaonDLL6GeVStandardMCPAB.png}
+      \caption{Pion-kaon $\Delta{\rm LL}$}
+    \end{subfigure}
+    \caption{Log likelihood at $\SI{6}{\giga\eV/c}$}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Pion-Kaon likelihood simulations}
+  \begin{figure}
+    \centering
+    \vspace{-0.2cm}
+    \begin{subfigure}{0.5\textwidth}
+      \includegraphics[width = 1.0\textwidth]{Plots/PionKaonLL15GeVStandardMCPAB.png}
+      \caption{Pion and kaon hypotheses}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+      \includegraphics[width = 1.0\textwidth]{Plots/PionKaonDLL15GeVStandardMCPAB.png}
+      \caption{Pion-kaon $\Delta{\rm LL}$}
+    \end{subfigure}
+    \caption{Log likelihood at $\SI{15}{\giga\eV/c}$}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Pion-Kaon likelihood simulations}
+  \begin{figure}
+    \centering
+    \vspace{-0.2cm}
+    \begin{subfigure}{0.5\textwidth}
+      \includegraphics[width = 1.0\textwidth]{Plots/PionKaonLL20GeVStandardMCPAB.png}
+      \caption{Pion and kaon hypotheses}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+      \includegraphics[width = 1.0\textwidth]{Plots/PionKaonDLL20GeVStandardMCPAB.png}
+      \caption{Pion-kaon $\Delta{\rm LL}$}
+    \end{subfigure}
+    \caption{Log likelihood at $\SI{20}{\giga\eV/c}$}
+  \end{figure}
 \end{frame}
 
 \end{document}
